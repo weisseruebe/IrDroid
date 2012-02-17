@@ -31,7 +31,7 @@ void setup()
 void sendNEC()
 {
   char *arg;
- 
+
   if (arg != NULL) 
   {
     int n;
@@ -44,10 +44,10 @@ void sendNEC()
 
 void readData(){
   char *arg;
-   while((arg = SCmd.next())!=NULL){
+  while((arg = SCmd.next())!=NULL){
     Serial.println(arg);
   } 
-  
+
   char *str;
   dataLength = 0;
   while ((str = strtok_r(arg, ",", &arg)) != NULL) {
@@ -67,7 +67,7 @@ void sendData()
 {
   char *arg;
   arg = SCmd.next();
-  
+
   if (arg != NULL) 
   {
     int n;
@@ -75,9 +75,6 @@ void sendData()
     irsend.sendRaw(data, n, freq);
     delay(65);
     irsend.sendRaw(data, n, freq);
-    Serial.print("Sending ");
-    Serial.print(n);
-    Serial.println("Bytes");
   }
 }
 
@@ -85,7 +82,7 @@ void sendRAW()
 {
   unsigned int leng[] = {
     //9065,4484,574,574,574,1668,574,1668,574,1668,574,574,574,1668,574,1668,574,1668,574,1668,574,1668,574,1668,574,574,574,574,574,574,
-      3437,1634,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,1200,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,345,500,1200,500,1200,500,345,500,345,500,345,500,345,500,1200,500,345,500,345,500,345,500,345,500,1200,479
+    3437,1634,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,1200,500,345,500,1200,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,345,500,1200,500,345,500,1200,500,1200,500,345,500,345,500,345,500,345,500,1200,500,345,500,345,500,345,500,345,500,1200,479
   };
 
   irsend.sendRaw(leng, sizeof(leng)/sizeof(int), 38);
@@ -103,14 +100,11 @@ void readD()
     sscanf (arg,"%d",&index);
     arg = SCmd.next();
     if (arg != NULL) 
-   {
-    int d = 0;
-    sscanf (arg,"%d",&d);
-    data[index] = d;
-    //Serial.print("Set data: ");
-    //Serial.print(index);
-    //Serial.print(d);
-   }
+    {
+      int d = 0;
+      sscanf (arg,"%d",&d);
+      data[index] = d;
+    }
   }   
 }
 
@@ -125,7 +119,7 @@ void sendRaw(int n)
 void sendRAWNikon()
 {
   unsigned int leng[7] = {
-    2000,27800,400,1580,460,3580,400  };
+    2000,27800,400,1580,460,3580,400    };
 
   irsend.sendRaw(leng, 7, 38);
   delay(65);
@@ -137,6 +131,7 @@ void sendRAWNikon()
 void loop() {
   SCmd.readSerial();  
 }
+
 
 
 
