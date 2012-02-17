@@ -73,8 +73,8 @@ void sendData()
     int n;
     sscanf (arg,"%d",&n);
     irsend.sendRaw(data, n, freq);
-    delay(65);
-    irsend.sendRaw(data, n, freq);
+    //delay(65);
+    //irsend.sendRaw(data, n, freq);
   }
 }
 

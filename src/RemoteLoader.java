@@ -37,7 +37,7 @@ public class RemoteLoader {
 
 	public Integer[] parseInts(String[] strings){
 		if (strings.length!=3){
-			throw new IllegalArgumentException("Must be 3 String");
+			throw new IllegalArgumentException("Must be 3 Strings long");
 		}
 		return new Integer[]{Integer.parseInt(strings[1]),Integer.parseInt(strings[2])};
 	}
@@ -50,29 +50,23 @@ public class RemoteLoader {
 				processor = null;
 			} else if (line.startsWith("header")) {
 				String[] values = split(line);
-				System.out.println("Header " + values[1] + " " + values[2]);
 				remoteDescription.header = parseInts(values);
 			} else if (line.startsWith("name")) {
 				System.out.println("Name " + line);
 			} else if (line.startsWith("zero")) {
 				String[] values = split(line);
-				System.out.println("Zero " + values[1] + " " + values[2]);
 				remoteDescription.zero = parseInts(values);
 			} else if (line.startsWith("one")) {
 				String[] values = split(line);
-				System.out.println("One " + values[1] + " " + values[2]);
 				remoteDescription.one = parseInts(values);
 			} else if (line.startsWith("pre_data ")) {
 				String data = split(line)[1];
-				System.out.println("Predata " + data);
 				remoteDescription.preBitsData = toByteArray(data);
 			} else if (line.startsWith("post_data ")) {
 				String data = split(line)[1];
-				System.out.println("post_data " + data);
 				remoteDescription.postBitsData = toByteArray(data);
 			} else if (line.startsWith("ptrail ")) {
 				String data = split(line)[1];
-				System.out.println("ptrail " + data);
 				remoteDescription.ptrail = Integer.parseInt(data);
 			} else if (line.startsWith("begin codes")) {
 				processor = codeProcessor;

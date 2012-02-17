@@ -9,19 +9,20 @@ public class LircJava {
 	public static void main(String[] args) throws Exception {
 		remoteDescription = new RemoteDescription();
 		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/apple/A1294");
-		
-		remote = new Remote("/dev/tty.usbserial-A8004Zfe15");
+//		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/panasonic/N2QAYB000329");
+		remote = new Remote("/dev/tty.usbserial-A8004Zfe");
 		Thread.sleep(1000);
 		System.out.println("++++++");
+		for (String s:remoteDescription.codes.keySet()){
+			System.out.println(s);
+		}
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			String b = sc.nextLine();
-			if (b.equals("a")) {
-				send("chplus");
-			} else if (b.equals("s")) {
-				remote.writeToPort("send " + 99 + "\r");
-			} else {
-				send("UP");
+			if (b.equals("")) {
+				send("DOWN");
+			} else  {
+				send(b);
 			}
 
 		}

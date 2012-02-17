@@ -43,9 +43,9 @@ public class RemoteDescription {
 		Byte[] chplus = {0x00,(byte) 0x2C,(byte) 0x21};
 		Byte[] chminus = {0x00,(byte) 0xAC,(byte) 0xA1};
 
-		codes.put("plus", plus);
-		codes.put("chplus",chplus);
-		codes.put("chminus",chminus);
+//		codes.put("plus", plus);
+//		codes.put("chplus",chplus);
+//		codes.put("chminus",chminus);
 		
 	}
 
