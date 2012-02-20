@@ -8,8 +8,8 @@ public class LircJava {
 
 	public static void main(String[] args) throws Exception {
 		remoteDescription = new RemoteDescription();
-		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/apple/A1294");
-//		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/panasonic/N2QAYB000329");
+//		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/apple/A1294");
+		remoteDescription = new RemoteLoader().load("/Users/andreasrettig/Desktop/remotes/panasonic/N2QAYB000329");
 		remote = new Remote("/dev/tty.usbserial-A8004Zfe");
 		Thread.sleep(1000);
 		System.out.println("++++++");
